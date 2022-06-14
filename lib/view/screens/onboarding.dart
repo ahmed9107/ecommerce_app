@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../../services/datasource/static/static.dart';
+import 'package:ecommerce_app/view/widgets/onboarding/custom_button.dart';
+import 'package:ecommerce_app/view/widgets/onboarding/custom_slider.dart';
+import 'package:ecommerce_app/view/widgets/onboarding/dots_indicator.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({Key? key}) : super(key: key);
@@ -9,39 +9,25 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          PageView.builder(
-            physics: const BouncingScrollPhysics(),
-            //controller: pageController,
-            itemBuilder: (context, i) => Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  onboardingList[i].title!,
-                  style: GoogleFonts.roboto(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Expanded(
-                  child: Image.asset(onboardingList[i].image!),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                Text(
-                  onboardingList[i].body!,
-                  style: GoogleFonts.roboto(
-                      fontSize: 14.0,
-                  ),
-                )
-              ],
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: Column(children: [
+            Expanded(
+              flex: 3,
+              child: OnboardingCustomSlider(),
             ),
-            onPageChanged: (int i) {},
-            itemCount: onboardingList.length,
-          ),
-        ]
+            Expanded(
+              flex: 1,
+              child: Column(
+                children: const [
+                  DotsIndicatorController(),
+                  Spacer(flex: 2),
+                  CustomButton()
+                ],
+              )
+            )
+          ]
+        ),
       )
     );
   }
