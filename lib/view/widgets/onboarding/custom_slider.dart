@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/onboarding_controller.dart';
-import '../../../services/datasource/static/static.dart';
+import '../../../data/datasource/static/static.dart';
 
 class OnboardingCustomSlider extends GetView<OnBoardingControllerImp> {
   const OnboardingCustomSlider({Key? key}) : super(key: key);

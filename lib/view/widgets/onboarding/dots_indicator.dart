@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/onboarding_controller.dart';
-import '../../../services/datasource/static/static.dart';
+import '../../../data/datasource/static/static.dart';
 
 class DotsIndicatorController extends StatelessWidget {
   const DotsIndicatorController({Key? key}) : super(key: key);
