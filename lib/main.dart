@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/helpers/services/services.dart';
 import 'package:ecommerce_app/utils/localisation/change_local.dart';
 import 'package:ecommerce_app/utils/localisation/translation.dart';
@@ -25,6 +26,18 @@ class MyApp extends StatelessWidget {
       translations: Translation(),
       locale: _localeController.appLang,
       fallbackLocale: const Locale('en'),
+      theme: ThemeData(
+          textTheme: const TextTheme(
+        headline1: TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 22.0, color: Colors.black),
+        headline2: TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 26.0, color: Colors.black),
+        bodyText1: TextStyle(
+            height: 2,
+            fontWeight: FontWeight.bold,
+            fontSize: 14.0,
+            color: AppColor.grey),
+      )),
       home: const Onboarding(),
       routes: routes,
     );

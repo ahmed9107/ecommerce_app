@@ -3,18 +3,15 @@ import '../../model/onboarding_model.dart';
 
 List<OnboardingModel> onboardingList = [
   OnboardingModel(
-    title:'',
-    image: ImageAsset.onboardingImgFirst,
-    body: ''
-  ),
+      title: 'Discover',
+      image: ImageAsset.onboardingImgFirst,
+      body: 'Explore world\'s top brands \n and boutiques'),
   OnboardingModel(
-    title:'',
-    image: ImageAsset.onboardingImgSecond,
-    body: ''
-  ),
+      title: 'Make the payment',
+      image: ImageAsset.onboardingImgSecond,
+      body: 'Choose the preferable\n option of payment'),
   OnboardingModel(
-    title:'',
-    image: ImageAsset.onboardingImgThird,
-    body: ''
-  ),
+      title: 'Enjoy you shopping',
+      image: ImageAsset.onboardingImgThird,
+      body: 'Get high quality products\n for the best prices'),
 ];

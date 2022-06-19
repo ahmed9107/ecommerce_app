@@ -12,23 +12,20 @@ class Onboarding extends StatelessWidget {
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(children: [
-            Expanded(
+            const Expanded(
               flex: 3,
               child: OnboardingCustomSlider(),
             ),
             Expanded(
-              flex: 1,
-              child: Column(
-                children: const [
-                  DotsIndicatorController(),
-                  Spacer(flex: 2),
-                  CustomButton()
-                ],
-              )
-            )
-          ]
-        ),
-      )
-    );
+                flex: 1,
+                child: Column(
+                  children: const [
+                    DotsIndicatorController(),
+                    Spacer(flex: 2),
+                    CustomButton()
+                  ],
+                ))
+          ]),
+        ));
   }
 }
