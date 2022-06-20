@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             fontSize: 14.0,
             color: AppColor.grey),
+        bodyText2: TextStyle(height: 2, fontSize: 14.0, color: AppColor.grey),
       )),
       home: const Onboarding(),
       routes: routes,

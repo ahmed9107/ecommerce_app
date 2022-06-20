@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
+import '../../widgets/auth/auth_body_text.dart';
+import '../../widgets/auth/auth_title.dart';
+import '../../widgets/auth/custom_button_auth.dart';
+import '../../widgets/auth/custom_text_field.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+  Login({Key? key}) : super(key: key);
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,44 +28,48 @@ class Login extends StatelessWidget {
             const SizedBox(
               height: 20.0,
             ),
-            Text(
-              'Welcome Back',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline2,
+            const AuthTitle(
+              title: 'Welcome Back!',
             ),
             const SizedBox(
               height: 10.0,
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Text(
-                'Sign in with your Email and password or continue with social media',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline2,
-              ),
+            const AuthBodyText(
+                text:
+                    'Sign in with your Email and password or continue with social media'),
+            const SizedBox(
+              height: 65.0,
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 5.0, horizontal: 30.0),
-                  suffixIcon: const Icon(Icons.email_outlined),
-                  label: const Text('Email'),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0))),
+            AuthCustomTextFormField(
+              controller: emailController,
+              hint: 'Enter your email',
+              label: 'Email',
+              suffixIcon: Icons.email_outlined,
             ),
+            AuthCustomTextFormField(
+              controller: emailController,
+              hint: 'Enter your password',
+              label: 'Password',
+              suffixIcon: Icons.lock_outlined,
+            ),
+            const Text(
+              'Forgot password',
+              textAlign: TextAlign.end,
+            ),
+            const CustomButtonAuth(text: 'Sign In'),
             const SizedBox(
               height: 10.0,
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 5.0, horizontal: 30.0),
-                  suffixIcon: const Icon(Icons.email_outlined),
-                  label: const Text('Password'),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0))),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Don\'t have an account? '),
+                InkWell(
+                  onTap: () {},
+                  child: const Text('Sign Up',
+                      style: TextStyle(color: AppColor.primaryColor)),
+                )
+              ],
             )
           ],
         ),
