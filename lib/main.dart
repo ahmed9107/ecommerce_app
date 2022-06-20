@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/helpers/services/services.dart';
 import 'package:ecommerce_app/utils/localisation/change_local.dart';
 import 'package:ecommerce_app/utils/localisation/translation.dart';
@@ -6,6 +5,8 @@ import 'package:ecommerce_app/view/screens/onboarding.dart';
 import 'package:ecommerce_app/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'utils/constants/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,19 +27,7 @@ class MyApp extends StatelessWidget {
       translations: Translation(),
       locale: _localeController.appLang,
       fallbackLocale: const Locale('en'),
-      theme: ThemeData(
-          textTheme: const TextTheme(
-        headline1: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 22.0, color: Colors.black),
-        headline2: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 26.0, color: Colors.black),
-        bodyText1: TextStyle(
-            height: 2,
-            fontWeight: FontWeight.bold,
-            fontSize: 14.0,
-            color: AppColor.grey),
-        bodyText2: TextStyle(height: 2, fontSize: 14.0, color: AppColor.grey),
-      )),
+      theme: Themes.light,
       home: const Onboarding(),
       routes: routes,
     );
