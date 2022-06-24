@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../controllers/auth/login_controller.dart';
 import '../../../utils/constants/colors.dart';
 import '../../widgets/auth/auth_body_text.dart';
 import '../../widgets/auth/auth_title.dart';
 import '../../widgets/auth/custom_button_auth.dart';
 import '../../widgets/auth/custom_text_field.dart';
+import '../../widgets/auth/signup_text.dart';
 
 class Login extends StatelessWidget {
-  Login({Key? key}) : super(key: key);
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  const Login({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    LoginController controller = Get.put(LoginController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.appBackgroundColor,
@@ -41,13 +43,13 @@ class Login extends StatelessWidget {
               height: 65.0,
             ),
             AuthCustomTextFormField(
-              controller: emailController,
+              controller: controller.emailController,
               hint: 'Enter your email',
               label: 'Email',
               suffixIcon: Icons.email_outlined,
             ),
             AuthCustomTextFormField(
-              controller: emailController,
+              controller: controller.emailController,
               hint: 'Enter your password',
               label: 'Password',
               suffixIcon: Icons.lock_outlined,
@@ -60,17 +62,13 @@ class Login extends StatelessWidget {
             const SizedBox(
               height: 10.0,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Don\'t have an account? '),
-                InkWell(
-                  onTap: () {},
-                  child: const Text('Sign Up',
-                      style: TextStyle(color: AppColor.primaryColor)),
-                )
-              ],
-            )
+            CustomTextSignUpOrSignIn(
+              onTap: () {
+                controller.goToSignUp();
+              },
+              textone: 'Don\'t have an account? ',
+              texttwo: 'Sign Up',
+            ),
           ],
         ),
       ),
