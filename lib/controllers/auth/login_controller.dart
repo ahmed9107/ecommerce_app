@@ -12,6 +12,10 @@ class LoginController extends GetxController {
     Get.toNamed(AppRoute.signup);
   }
 
+  goToForgetPass() {
+    Get.toNamed(AppRoute.forgetPassword);
+  }
+
   @override
   void onInit() {
     emailController = TextEditingController();

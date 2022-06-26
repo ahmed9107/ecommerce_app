@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../controllers/auth/login_controller.dart';
+import '../../../controllers/auth/forget_pass_controller.dart';
 import '../../../utils/constants/colors.dart';
 import '../../widgets/auth/auth_body_text.dart';
 import '../../widgets/auth/auth_title.dart';
@@ -8,17 +8,17 @@ import '../../widgets/auth/custom_button_auth.dart';
 import '../../widgets/auth/custom_text_field.dart';
 import '../../widgets/auth/signup_text.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class ForgetPassword extends StatelessWidget {
+  const ForgetPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    LoginController controller = Get.put(LoginController());
+    ForgetPassController controller = Get.put(ForgetPassController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.appBackgroundColor,
         title: Text(
-          'Sign in',
+          'Forget Password',
           style: Theme.of(context).textTheme.headline1,
         ),
         elevation: 0.0,
@@ -31,48 +31,31 @@ class Login extends StatelessWidget {
               height: 20.0,
             ),
             const AuthTitle(
-              title: 'Welcome Back!',
+              title: 'Check Email!',
             ),
             const SizedBox(
               height: 10.0,
             ),
-            const AuthBodyText(
-                text:
-                    'Sign in with your Email and password or continue with social media'),
+            const AuthBodyText(text: 'Please enter your email adresse'),
             const SizedBox(
               height: 65.0,
             ),
             AuthCustomTextFormField(
-              controller: controller.emailController,
+              controller: controller.email,
               hint: 'Enter your email',
               label: 'Email',
               suffixIcon: Icons.email_outlined,
             ),
-            AuthCustomTextFormField(
-              controller: controller.emailController,
-              hint: 'Enter your password',
-              label: 'Password',
-              suffixIcon: Icons.lock_outlined,
-            ),
-            InkWell(
-              onTap: () {
-                controller.goToForgetPass();
-              },
-              child: const Text(
-                'Forgot password',
-                textAlign: TextAlign.end,
-              ),
-            ),
-            const CustomButtonAuth(text: 'Sign In'),
+            const CustomButtonAuth(text: 'Sign Up'),
             const SizedBox(
               height: 10.0,
             ),
             CustomTextSignUpOrSignIn(
               onTap: () {
-                controller.goToSignUp();
+                controller.goToVerifyPage();
               },
-              textone: 'Don\'t have an account? ',
-              texttwo: 'Sign Up',
+              textone: 'Already have an account? ',
+              texttwo: 'Login',
             ),
           ],
         ),
