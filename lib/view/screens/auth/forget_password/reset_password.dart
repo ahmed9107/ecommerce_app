@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../controllers/auth/reset_pass_controller.dart';
-import '../../../utils/constants/colors.dart';
-import '../../widgets/auth/auth_body_text.dart';
-import '../../widgets/auth/auth_title.dart';
-import '../../widgets/auth/custom_button_auth.dart';
-import '../../widgets/auth/custom_text_field.dart';
+import '../../../../controllers/auth/reset_pass_controller.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../widgets/auth/auth_body_text.dart';
+import '../../../widgets/auth/auth_title.dart';
+import '../../../widgets/auth/custom_button_auth.dart';
+import '../../../widgets/auth/custom_text_field.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);

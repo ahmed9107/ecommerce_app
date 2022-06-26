@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/constants/colors.dart';
-import '../../widgets/auth/custom_button_auth.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../widgets/auth/custom_button_auth.dart';
 
-class SuccessSignUp extends StatelessWidget {
-  const SuccessSignUp({Key? key}) : super(key: key);
+class SuccessResetPass extends StatelessWidget {
+  const SuccessResetPass({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

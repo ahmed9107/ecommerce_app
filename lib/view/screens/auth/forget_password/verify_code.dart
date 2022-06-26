@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import '../../../controllers/auth/verify_code_controller.dart';
-import '../../../utils/constants/colors.dart';
-import '../../widgets/auth/auth_body_text.dart';
-import '../../widgets/auth/auth_title.dart';
+import '../../../../controllers/auth/verify_code_controller.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../widgets/auth/auth_body_text.dart';
+import '../../../widgets/auth/auth_title.dart';
 
 class VerifyCode extends StatelessWidget {
   const VerifyCode({Key? key}) : super(key: key);
