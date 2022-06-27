@@ -5,8 +5,16 @@ import '../../utils/constants/routes.dart';
 class LoginController extends GetxController {
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
-  login() {}
+  login() {
+    var formkey = formstate.currentState;
+    if (formkey!.validate()) {
+      print('Valid');
+    } else {
+      print('Not Valid');
+    }
+  }
 
   goToSignUp() {
     Get.toNamed(AppRoute.signup);

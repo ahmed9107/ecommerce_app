@@ -5,6 +5,17 @@ import '../../utils/constants/routes.dart';
 class ResetPasswordController extends GetxController {
   late TextEditingController newPass;
   late TextEditingController rePassword;
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
+  checkEmail() {
+    var formkey = formstate.currentState;
+    if (formkey!.validate()) {
+      //print('Valid');
+      goToSuccessResetPass();
+    } else {
+      print('Not Valid');
+    }
+  }
 
   @override
   void onInit() {
@@ -19,8 +30,6 @@ class ResetPasswordController extends GetxController {
     rePassword.dispose();
     super.dispose();
   }
-
-  checkEmail() {}
 
   goToSuccessResetPass() {
     Get.offNamed(AppRoute.successResetPassword);

@@ -5,7 +5,17 @@ import '../../utils/constants/routes.dart';
 class ForgetPassController extends GetxController {
   late TextEditingController email;
 
-  checkEmail() {}
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
+  checkEmail() {
+    var formkey = formstate.currentState;
+    if (formkey!.validate()) {
+      //print('Valid');
+      goToVerifyPage();
+    } else {
+      print('Not Valid');
+    }
+  }
 
   goToVerifyPage() {
     Get.offNamed(AppRoute.verifyCode);

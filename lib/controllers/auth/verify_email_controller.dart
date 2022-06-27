@@ -4,11 +4,19 @@ import '../../utils/constants/routes.dart';
 
 class VerifyEmailController extends GetxController {
   late TextEditingController email;
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
-  checkEmail() {}
+  checkEmail() {
+    var formkey = formstate.currentState;
+    if (formkey!.validate()) {
+      goToVerifyCodeSignUp();
+    } else {
+      print('Not Valid');
+    }
+  }
 
-  goToSuccessSignUp() {
-    Get.offNamed(AppRoute.verifyCode);
+  goToVerifyCodeSignUp() {
+    Get.offNamed(AppRoute.verifyCodeSignUp);
   }
 
   @override
