@@ -18,8 +18,7 @@ class SignUpController extends GetxController {
   signUp() {
     var formkey = formstate.currentState;
     if (formkey!.validate()) {
-      //print('Valid');
-      Get.offNamed(AppRoute.verifyEmail);
+      Get.offNamed(AppRoute.verifyCodeSignUp);
     } else {
       print('Not Valid');
     }

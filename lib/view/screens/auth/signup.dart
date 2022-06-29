@@ -14,7 +14,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignUpController controller = Get.put(SignUpController());
+    // SignUpController controller = Get.put(SignUpController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.appBackgroundColor,
@@ -24,82 +24,85 @@ class SignUp extends StatelessWidget {
         ),
         elevation: 0.0,
       ),
-      body: Form(
-        key: controller.formstate,
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
-          child: ListView(
-            children: [
-              const SizedBox(
-                height: 20.0,
-              ),
-              const AuthTitle(
-                title: 'Welcome!',
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              const AuthBodyText(
-                  text:
-                      'Sign Up with your Email and password or continue with social media'),
-              const SizedBox(
-                height: 65.0,
-              ),
-              AuthCustomTextFormField(
-                controller: controller.user,
-                hint: 'Enter your name',
-                label: 'Name',
-                suffixIcon: Icons.person_outline,
-                validator: (String? value) {
-                  return inputValidator(value!, 3, 20, 'username');
-                },
-              ),
-              AuthCustomTextFormField(
-                controller: controller.email,
-                hint: 'Enter your email',
-                label: 'Email',
-                suffixIcon: Icons.email_outlined,
-                validator: (String? value) {
-                  return inputValidator(value!, 10, 20, 'email');
-                },
-              ),
-              AuthCustomTextFormField(
-                controller: controller.phone,
-                hint: 'Enter your phone',
-                label: 'Phone',
-                suffixIcon: Icons.phone_android_outlined,
-                validator: (String? value) {
-                  return inputValidator(value!, 6, 20, 'phone');
-                },
-              ),
-              AuthCustomTextFormField(
-                controller: controller.password,
-                hint: 'Enter your password',
-                label: 'Password',
-                suffixIcon: Icons.lock_outlined,
-                validator: (String? value) {
-                  return inputValidator(value!, 8, 20, 'password');
-                },
-              ),
-              CustomButtonAuth(
-                  onPressed: () {
-                    controller.signUp();
+      body: GetBuilder<SignUpController>(builder: (controller) {
+        return Form(
+          key: controller.formstate,
+          child: Container(
+            padding:
+                const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
+            child: ListView(
+              children: [
+                const SizedBox(
+                  height: 20.0,
+                ),
+                const AuthTitle(
+                  title: 'Welcome!',
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                const AuthBodyText(
+                    text:
+                        'Sign Up with your Email and password or continue with social media'),
+                const SizedBox(
+                  height: 65.0,
+                ),
+                AuthCustomTextFormField(
+                  controller: controller.user,
+                  hint: 'Enter your name',
+                  label: 'Name',
+                  suffixIcon: Icons.person_outline,
+                  validator: (String? value) {
+                    return inputValidator(value!, 3, 20, 'username');
                   },
-                  text: 'Sign Up'),
-              const SizedBox(
-                height: 10.0,
-              ),
-              CustomTextSignUpOrSignIn(
-                onTap: () {
-                  controller.goToLogin();
-                },
-                textone: 'Already have an account? ',
-                texttwo: 'Login',
-              ),
-            ],
+                ),
+                AuthCustomTextFormField(
+                  controller: controller.email,
+                  hint: 'Enter your email',
+                  label: 'Email',
+                  suffixIcon: Icons.email_outlined,
+                  validator: (String? value) {
+                    return inputValidator(value!, 10, 20, 'email');
+                  },
+                ),
+                AuthCustomTextFormField(
+                  controller: controller.phone,
+                  hint: 'Enter your phone',
+                  label: 'Phone',
+                  suffixIcon: Icons.phone_android_outlined,
+                  validator: (String? value) {
+                    return inputValidator(value!, 6, 20, 'phone');
+                  },
+                ),
+                AuthCustomTextFormField(
+                  controller: controller.password,
+                  hint: 'Enter your password',
+                  label: 'Password',
+                  suffixIcon: Icons.lock_outlined,
+                  validator: (String? value) {
+                    return inputValidator(value!, 8, 20, 'password');
+                  },
+                ),
+                CustomButtonAuth(
+                    onPressed: () {
+                      controller.signUp();
+                    },
+                    text: 'Sign Up'),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                CustomTextSignUpOrSignIn(
+                  onTap: () {
+                    controller.goToLogin();
+                  },
+                  textone: 'Already have an account? ',
+                  texttwo: 'Login',
+                ),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 }
