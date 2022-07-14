@@ -14,7 +14,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // SignUpController controller = Get.put(SignUpController());
+    SignUpController controller = Get.put(SignUpController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.appBackgroundColor,
@@ -30,7 +30,7 @@ class SignUp extends StatelessWidget {
           child: Container(
             padding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
-            child: ListView(
+            child: Column(
               children: [
                 const SizedBox(
                   height: 20.0,

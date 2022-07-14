@@ -18,6 +18,7 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.appBackgroundColor,
+        titleSpacing:0.0,
         title: Text(
           'Sign in',
           style: Theme.of(context).textTheme.headline1,
@@ -27,24 +28,16 @@ class Login extends StatelessWidget {
       body: Form(
         key: controller.formstate,
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
-          child: ListView(
+          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 20.0,
-              ),
-              const AuthTitle(
-                title: 'Welcome Back!',
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
+              const SizedBox(height: 20.0),
+              const AuthTitle(title: 'Welcome Back!'),
+              const SizedBox(height: 10.0),
               const AuthBodyText(
-                  text:
-                      'Sign in with your Email and password or continue with social media'),
-              const SizedBox(
-                height: 65.0,
-              ),
+                text: 'Sign in with your Email and password or continue with social media'),
+              const SizedBox(height: 65.0),
               AuthCustomTextFormField(
                 controller: controller.emailController,
                 hint: 'Enter your email',
@@ -63,23 +56,25 @@ class Login extends StatelessWidget {
                   return inputValidator(value!, 8, 20, 'password');
                 },
               ),
-              InkWell(
-                onTap: () {
-                  controller.goToForgetPass();
-                },
-                child: const Text(
-                  'Forgot password',
-                  textAlign: TextAlign.end,
+              Align(
+                alignment: Alignment.bottomRight,
+                child: InkWell(
+                  onTap: () {
+                    controller.goToForgetPass();
+                  },
+                  child: const Text(
+                    'Forgot password',
+                    textAlign: TextAlign.end,
+                  ),
                 ),
               ),
+              const SizedBox(height: 20.0,),
               CustomButtonAuth(
                   onPressed: () {
                     controller.login();
                   },
                   text: 'Sign In'),
-              const SizedBox(
-                height: 10.0,
-              ),
+              const SizedBox(height: 60.0),
               CustomTextSignUpOrSignIn(
                 onTap: () {
                   controller.goToSignUp();

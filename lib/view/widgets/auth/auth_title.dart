@@ -8,7 +8,7 @@ class AuthTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      textAlign: TextAlign.center,
+      textAlign: TextAlign.left,
       style: Theme.of(context).textTheme.headline2,
     );
   }
