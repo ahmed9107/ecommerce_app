@@ -1,35 +1,41 @@
-import 'package:ecommerce_app/utils/helpers/services/services.dart';
-import 'package:ecommerce_app/utils/localisation/change_local.dart';
-import 'package:ecommerce_app/utils/localisation/translation.dart';
-import 'package:ecommerce_app/view/screens/onboarding.dart';
-import 'package:ecommerce_app/routes.dart';
+import 'package:store_app/controller/layout_controller.dart';
+import 'package:store_app/controller/products_controller.dart';
+import 'package:store_app/routes/app_routes.dart';
+import 'package:store_app/utils/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'utils/constants/theme.dart';
+import 'package:store_app/utils/localisation/translation.dart';
+import 'utils/helpers/dependencies.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initServices();
+  await InitialBindings().dependencies();
+  //await dependency.init();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({
-    Key? key,
-  }) : super(key: key);
-
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    LocaleController _localeController = Get.put(LocaleController());
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      translations: Translation(),
-      locale: _localeController.appLang,
-      fallbackLocale: const Locale('en'),
-      theme: Themes.light,
-      home: const Onboarding(),
-      routes: routes,
-    );
+    //Get.find<CartController>().getCartData();
+    return GetBuilder<LayoutController>(builder: (controller) {
+      return GetBuilder<ProductsController>(
+        builder: (_) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            translations: Translation(),
+            locale: const Locale('en'),
+            fallbackLocale: const Locale('en'),
+            theme: Themes.light,
+            darkTheme: Themes.dark,
+            themeMode: !controller.isDarkMode ? ThemeMode.light : ThemeMode.dark,
+            initialBinding: InitialBindings(),
+            initialRoute: AppRoute.getSplashPage(),
+            getPages: AppRoute.routes,
+          );
+        }
+      );
+    });
   }
 }
